@@ -1,0 +1,24 @@
+@echo off
+echo Starting Surprise Me Friday development environment...
+
+:: Start the backend
+echo Starting backend server...
+start cmd /k "cd backend && python app.py"
+
+:: Slight delay to ensure backend starts first
+timeout /t 3 /nobreak > nul
+
+:: Start the frontend
+echo Starting frontend development server...
+start cmd /k "cd frontend && npm start"
+
+echo.
+echo ✅ Surprise Me Friday is running!
+echo   - Frontend: http://localhost:3000
+echo   - Backend API: http://localhost:8000
+echo   - API Documentation: http://localhost:8000/docs
+echo.
+echo Close the command windows to stop the servers
+echo.
+
+pause
